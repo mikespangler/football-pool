@@ -1,0 +1,18 @@
+<%= form_tag(picks_path, method: "post") do %>
+  <% Bowl.all.each do |b| %>
+      <tr> 
+         <td><%= label_tag(:bowl_name, b.name) %></td>
+         <td>
+            <%= label_tag(:favorite, b.favorite) %>
+            <%= radio_button_tag(b.name, b.favorite) %>
+         </td>
+         <td> 
+            <%= label_tag(:underdog, b.underdog) %>
+            <%= radio_button_tag(b.name, b.underdog) %>
+         </td>
+         <br>
+      </tr>
+  <% end %>
+  <%= hidden_field_tag(:player_id, @player.id) %>
+  <%= submit_tag("Submit Picks") %>
+<% end %>
