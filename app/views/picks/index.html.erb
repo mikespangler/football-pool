@@ -1,1 +1,29 @@
-<%= Pick.all %>
+<table>
+  <tr>
+    <th>Player</th>
+    <th>Wins</th>
+  </tr>
+  <% Player.all.each do |player| %>
+    <tr>
+      <td><%= player.name %></td>
+      <td><%= player.wins %></td>
+    </tr>
+  <% end %>
+</table>
+
+<table>
+  <tr>
+    <th>Bowl</th>
+    <th>Player</th>
+    <th>Pick</th>
+    <th>Winner</th>
+  </tr>
+  <% Pick.sort_for_index.each do |pick| %>
+    <tr> 
+      <td><%= pick.bowl.name %></td>
+      <td><%= pick.player.name %></td>
+      <td><%= pick.winner %></td>
+      <td><%= pick.bowl.winner if pick.bowl.played? %></td>
+    </tr>
+  <% end %>
+</table>

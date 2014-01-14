@@ -10,18 +10,33 @@ class Player < ActiveRecord::Base
 
   def save_picks(bowl_params)
     pick_array = strip_metadata(bowl_params).compact
-    picks_to_save = pick_array.map do |new_pick|
+    pick_array.each do |new_pick|
       bowl = Bowl.find_by(:name => new_pick.keys)
-      @pick = Pick.new
-      @pick.bowl_id = bowl.id
-      @pick.player_id = bowl_params[:player_id]
-      @pick.winner = new_pick.values
+      pick = Pick.new
+      pick.bowl_id = bowl.id
+      pick.player_id = bowl_params[:player_id]
+      pick.winner = new_pick.values.first
+      pick.save
     end
-    binding.pry
-    picks_to_save.each {|pick| pick.save}
   end
 
   def wins
+    binding.pry
   end
 
 end
+
+  #   played_bowls = Bowl.all.map do |bowl|
+  #     bowl if bowl.played?
+  #   end
+
+  #   played_bowls.each do |bowl|
+  
+  #       Pick.all.each do |pick|
+  #         if pick.bowl_id == bowl.id
+  #           pick.player.wins += 1 if pick.winner ==  bowl.winner
+  #         end
+  #       end
+  #     end
+  #   end
+  # end
