@@ -19,24 +19,4 @@ class Player < ActiveRecord::Base
       pick.save
     end
   end
-
-  def wins
-    binding.pry
-  end
-
 end
-
-  #   played_bowls = Bowl.all.map do |bowl|
-  #     bowl if bowl.played?
-  #   end
-
-  #   played_bowls.each do |bowl|
-  
-  #       Pick.all.each do |pick|
-  #         if pick.bowl_id == bowl.id
-  #           pick.player.wins += 1 if pick.winner ==  bowl.winner
-  #         end
-  #       end
-  #     end
-  #   end
-  # end

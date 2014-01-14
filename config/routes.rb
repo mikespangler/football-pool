@@ -2,6 +2,10 @@ FootballPool::Application.routes.draw do
   root 'players#index'
   resources :players  
   resources :picks
+
+
+
+  
   #get 'players/new' => 'players#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
