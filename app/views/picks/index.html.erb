@@ -1,12 +1,12 @@
 <table>
   <tr>
-    <th>Player</th>
+    <th>User</th>
     <th>Wins</th>
   </tr>
-  <% Player.all.each do |player| %>
+  <% User.all.each do |user| %>
     <tr>
-      <td><%= player.name %></td>
-      <td><%= player.wins %></td>
+      <td><%= user.name %></td>
+      <td><%= user.wins %></td>
     </tr>
   <% end %>
 </table>
@@ -14,14 +14,14 @@
 <table>
   <tr>
     <th>Bowl</th>
-    <th>Player</th>
+    <th>User</th>
     <th>Pick</th>
     <th>Winner</th>
   </tr>
   <% Pick.sort_for_index.each do |pick| %>
     <tr> 
       <td><%= pick.bowl.name %></td>
-      <td><%= pick.player.name %></td>
+      <td><%= pick.user.name %></td>
       <td><%= pick.winner %></td>
       <td><%= pick.bowl.winner if pick.bowl.played? %></td>
     </tr>

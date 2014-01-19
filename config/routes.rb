@@ -1,12 +1,16 @@
 FootballPool::Application.routes.draw do
-  root 'players#index'
-  resources :players  
-  resources :picks
-
-
-
   
-  #get 'players/new' => 'players#new'
+  root 'users#new'
+ 
+  resources :picks
+  resources :users
+  resources :sessions
+  resources :bowls
+
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "sign_up" => "users#new", :as => "sign_up"
+    
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

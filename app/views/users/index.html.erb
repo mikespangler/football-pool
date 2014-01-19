@@ -1,0 +1,16 @@
+<table>
+  <th>Name</th>
+  <th>Email</th>
+  <th>Password</th>
+  <th>Payment</th>
+  <th>Wins</th>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.password %></td>
+      <td><%= user.payment %></td>
+      <td><%= user.wins %></td>
+    </tr>
+  <% end %>
+</table>

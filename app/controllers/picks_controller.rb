@@ -2,12 +2,12 @@ class PicksController < ApplicationController
 
   def new
     @pick = Pick.new
-    @player = flash[:player]
+    @user = flash[:user]
   end
 
   def create
-    @player = Player.find_by(:id => params[:player_id])
-    @player.save_picks(params)
+    @user = User.find_by(:id => params[:user_id])
+    @user.save_picks(params)
     redirect_to picks_path
   end
 
@@ -18,7 +18,7 @@ class PicksController < ApplicationController
 private
   
   def pick_params
-    params.require(:pick).permit(:player_id,:bowl_id,:winner)
+    params.require(:pick).permit(:user_id,:bowl_id,:winner)
   end
 
 end
