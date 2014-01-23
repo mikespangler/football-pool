@@ -6,8 +6,7 @@ class PicksController < ApplicationController
   end
 
   def create
-    @user = User.find_by(:id => params[:user_id])
-    @user.save_picks(params)
+    current_user.save_picks(params)
     redirect_to picks_path
   end
 

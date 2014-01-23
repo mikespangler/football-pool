@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
       bowl = Bowl.find_by(:name => new_pick.keys)
       pick = Pick.new
       pick.bowl_id = bowl.id
-      pick.user_id = bowl_params[:user_id]
+      pick.user_id = self.id
       pick.winner = new_pick.values.first
       pick.save
     end

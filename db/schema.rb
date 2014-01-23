@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140117223756) do
+ActiveRecord::Schema.define(version: 20140120041811) do
 
   create_table "bowls", force: true do |t|
     t.string   "name"
@@ -33,8 +33,9 @@ ActiveRecord::Schema.define(version: 20140117223756) do
     t.string  "email"
     t.string  "password_hash"
     t.string  "password_salt"
-    t.boolean "admin?"
+    t.boolean "admin?",        default: false
     t.string  "name"
+    t.integer "wins",          default: 0
   end
 
 end

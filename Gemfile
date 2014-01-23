@@ -4,7 +4,7 @@ gem 'better_errors'
 gem 'pry'
 gem 'binding_of_caller'
 
-gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt-ruby', :require => 'bcrypt'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'

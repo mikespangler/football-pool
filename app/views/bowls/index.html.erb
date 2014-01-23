@@ -1,0 +1,32 @@
+<table>
+  <tr>
+    <th>Bowl</th>
+    <th>Date</th>
+    <th>Favorite</th>
+    <th>Underdog</th>
+    <th>Spread</th>
+    <th>Who Won?</th>
+  </tr>
+  <%= form_tag(input_winners_path, method: "post") do %>
+    <% Bowl.all.each do |bowl| %>
+      <tr>
+        <td><%= bowl.name %></td>
+        <td><%= bowl.date.to_formatted_s %></td>
+        <td><%= bowl.favorite %></td>
+        <td><%= bowl.underdog %></td>
+        <td><%= bowl.spread %></td>
+        <td>
+          <% if bowl.winner %>
+            <%= bowl.winner %>
+          <% else %>
+            <% winner_options = [nil, bowl.favorite,bowl.underdog] %>
+            <%= select_tag(:"#{bowl.id}", options_for_select(winner_options)) %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td><%= submit_tag("Update Winners") %></td>
+    </tr>
+  <% end %>
+</table>
