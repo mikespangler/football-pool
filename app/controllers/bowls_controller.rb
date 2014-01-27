@@ -12,7 +12,7 @@ class BowlsController < ApplicationController
   end
 
   def input_winners
-    Bowl.input_winner(params)
+    Bowl.input_winners(params)
     redirect_to picks_path
   end
 

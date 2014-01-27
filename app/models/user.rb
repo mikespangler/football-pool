@@ -43,4 +43,11 @@ class User < ActiveRecord::Base
       pick.save
     end
   end
+
+  def self.update_win_count
+    self.all.each do |user|
+      
+    end
+  end
+
 end

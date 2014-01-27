@@ -17,9 +17,10 @@
         <td><%= bowl.spread %></td>
         <td>
           <% if bowl.winner %>
-            <%= bowl.winner %>
+            <% winner_options = [bowl.winner, (bowl.favorite if bowl.favorite != bowl.winner), (bowl.underdog if bowl.underdog != bowl.winner)] %>
+            <%= select_tag(:"#{bowl.id}", options_for_select(winner_options)) %>
           <% else %>
-            <% winner_options = [nil, bowl.favorite,bowl.underdog] %>
+            <% winner_options = [nil, bowl.favorite, bowl.underdog] %>
             <%= select_tag(:"#{bowl.id}", options_for_select(winner_options)) %>
           <% end %>
         </td>
